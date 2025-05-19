@@ -4,6 +4,8 @@ import router from './routes/weather';
 import authRoutes from './routes/auth';
 import adminRoutes from './routes/adminRoutes';
 import redis from './lib/redis';
+import setupSwagger from './swagger';
+
 
 
 dotenv.config();
@@ -14,5 +16,7 @@ app.use(express.json());
 app.use('/api/weather', router);
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
+
+setupSwagger(app);  
 
 export default app;

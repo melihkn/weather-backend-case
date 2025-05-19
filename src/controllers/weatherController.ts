@@ -8,6 +8,7 @@ import { ApiResponse } from '../types/ApiResponse';
 import logger from '../lib/logger';
 
 
+
 export const getWeather = async (req: AuthenticatedRequest & { body: WeatherRequestDTO }, res: Response<ApiResponse<WeatherQueryResponse>>) => {
     logger.info(`Getting weather for city: ${req.body.city}`);
     const city = req.body.city as string;
@@ -50,6 +51,8 @@ export const getWeather = async (req: AuthenticatedRequest & { body: WeatherRequ
       res.status(500).json({ success: false, error: 'Failed to fetch weather data' });
     }
   };
+
+
 
 export const getMyQueries = async (req: AuthenticatedRequest, res: Response) => {
     logger.info(`Getting all queries for user: ${req.user!.id}`);
