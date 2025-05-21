@@ -48,3 +48,11 @@ sudo service redis-server start
 ```bash
   npm test
 ```
+
+
+### If you want to use seperate database (strongly suggested) and do not want to use .env.test file use the following command before above npm test command:
+```bash
+  DATABASE_URL="postgresql://*username*:*your_password*@localhost:5432/weatherTest" npx prisma migrate deploy --schema=prisma/schema.prisma
+```
+
+
